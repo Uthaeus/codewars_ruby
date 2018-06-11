@@ -20,7 +20,41 @@ def near_flatten nested
           second.each do |third|
             if third[0].is_a? Array
               third.each do |fourth|
-                result << fourth.sort
+                if fourth[0].is_a? Array 
+                  fourth.each do |fifth|
+                    if fifth[0].is_a? Array 
+                      fifth.each do |sixth|
+                        if sixth[0].is_a? Array 
+                          sixth.each do |seventh|
+                            if seventh[0].is_a? Array 
+                              seventh.each do |eighth|
+                                if eighth[0].is_a? Array 
+                                  eighth.each do |ninth|
+                                    if ninth[0].is_a? Array 
+                                      ninth.each do |tenth|
+                                        result << tenth.sort
+                                      end
+                                    else
+                                      result << ninth.sort
+                                    end
+                                  end
+                                result << eighth.sort
+                              end
+                            else                          
+                              result << seventh.sort
+                            end
+                          end
+                        else
+                          result << sixth.sort
+                        end
+                      end
+                    else
+                      result << fifth.sort
+                    end
+                  end
+                else
+                  result << fourth.sort
+                end
               end
             else
               result << third.sort
