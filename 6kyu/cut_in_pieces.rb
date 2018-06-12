@@ -3,11 +3,18 @@
 
 def part_const(n, k, num)
   # Good Luck!
-  [*1...n].repeated_combination(3).select { |i| i.reduce(:+) == 10 && !i.include?(num) }.count
+  arr = (1...n).to_a - [num]
+  arr.repeated_combination(k).select { |i| i.reduce(:+) == n }.count
 
 end
 
 
 
 p part_const(10, 3, 2) #, 4
-#p part_const(10, 3, 0) #, 8
+p part_const(10, 3, 0) #, 8
+p part_const(10, 4, 1) #, 2
+
+
+
+
+

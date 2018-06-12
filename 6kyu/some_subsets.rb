@@ -15,8 +15,8 @@
 def f(n)
     # your code here
     result = []
-    possibles = (1..n).flat_map{ |s| [*1..n].combination(s).map(&:join) }
-    
+    possibles = (2..n).flat_map{ |s| [*2..n].combination(s).map(&:join).to_a }
+    p possibles
     possibles.each do |i|
       x = 0
       temp_arr = []
@@ -26,6 +26,7 @@ def f(n)
         if i[x + 1] != i[x] + 1 || i[x + 1] == nil
           temp_arr << i[x]
         end
+        x += 1
       end
       result << temp_arr
     end
@@ -36,4 +37,4 @@ end
 
 
 p f(5) #, 12
-p f(2) #, 2
+#p f(2) #, 2
