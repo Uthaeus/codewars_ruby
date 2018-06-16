@@ -5,16 +5,8 @@
 
 def nth_smallest(arr, n)
   # your code here
-  unique = []
-  arr.each do |i|
-    unique << i unless unique.include?(i)
-  end
-  sorted = unique.sort do |a, b|
-    a <=> b 
-  end
-  nth = sorted[n - 1]
-  return nth 
-
+  arr.uniq.sort { |a, b| a <=> b}[n - 1]
+  
 end
 
 
