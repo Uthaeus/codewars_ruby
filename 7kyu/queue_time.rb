@@ -8,20 +8,25 @@
 
 def queue(queuers,pos)
   #your code here
+  dude = queuers[pos]
+  count = pos + 1
+  x = 0
   que = queuers
-  dude = queuers[pos] - 1
-  total = pos 
 
-  dude.times do 
-    total += que.length
-    que = que.map { |i| i - 1 }
-    if que.include?(0)
-      que.delete(0)
-    end
-    
+  while x < count do 
+    que[x] -= 1
+    x += 1
   end
 
-  total
+  while dude > 1 do 
+    que.delete(0)
+    count += que.length
+    que = que.map { |i| i -= 1 }
+
+    dude -= 1
+  end
+
+  count
 end
 
 
