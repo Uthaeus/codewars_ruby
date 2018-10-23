@@ -6,9 +6,22 @@
 
 def movie(card, ticket, perc)
     # your code
-    
+    reduced = (ticket * perc)  
+    count = 0
+    reg = 0
+    total = card 
 
-    x
+    while total >= reg do 
+        reg += ticket 
+        temp = ticket 
+        count.times do 
+            temp *= perc 
+        end
+        total += temp * perc 
+        count += 1
+    end
+     
+    count 
 end
 
 
