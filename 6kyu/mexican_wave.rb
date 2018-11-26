@@ -36,3 +36,4 @@ end
 
 
 p wave("hello") #["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+p wave("two words") #["Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"]
