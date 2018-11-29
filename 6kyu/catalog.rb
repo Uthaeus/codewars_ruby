@@ -50,10 +50,21 @@ $s="<prod><name>drill</name><prx>99</prx><qty>5</qty></prod>
 <prod><name>window fan</name><prx>62</prx><qty>8</qty></prod>"
 
 def catalog(s, f)
-    data = Hash.from_xml(s)
-    data 
+    result = []
+
+    s.each_line do |prod|
+        product = prod.scan(/<name>(.*)<\/name>/).flatten[0].to_s
+        if product.include? f 
+            price = prod.scan(/<prx>(.*)<\/prx>/).flatten[0]
+            quant = prod.scan(/<qty>(.*)<\/qty>/).flatten[0]
+            temp = "#{product} > prx: $#{price} qty: #{quant}"
+            result << temp
+        end
+    end
+    result.empty? ? 'Nothing' : result.join("\n")
 end
 
 
 
 p catalog($s, "ladder") # , "ladder > prx: $112 qty: 12"
+p catalog($s, "saw") # , "table saw > prx: $1099.99 qty: 5\nsaw > prx: $9 qty: 10\nsaw for metal > prx: $13.80 qty: 32")
