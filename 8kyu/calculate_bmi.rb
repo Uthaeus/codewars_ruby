@@ -17,3 +17,4 @@ end
 
 
 p bmi(50, 1.80) #, "Underweight"
+p bmi(90, 1.80) #, "Overweight"
