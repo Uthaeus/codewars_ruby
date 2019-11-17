@@ -10,7 +10,16 @@ def find_uniq(arr)
             res[a] = 1
         end
     end
-    res.find {|key, val| val == 1}.first
+    res.select {|key, val| val == 1}.first.first
+
+    res = {}
+    arr.each do |a|
+        if res[a]
+            res[a] += 1
+        else
+            res[a] = 1
+        end
+    end
 end
 
 
